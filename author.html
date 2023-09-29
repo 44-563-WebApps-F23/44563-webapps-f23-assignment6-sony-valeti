@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WEBAPPS LAB-6</title>
+</head>
+ 
+<body>
+
+<h2> Author entry Sony Valeti</h2>
+
+<form>
+    <label for="secretvalue">The hidden author name</label>
+    <input type="password" value="Dickens" name="secretvalue" id="secretvalue">
+    <br><br>
+    <label for="input">Guess the author</label>
+    <input type="text" id="input">
+    <br><br>
+    <button type="button" onclick="checkAuthor()">check the Guess</button>
+    <br><br>
+    <p>Good:<span id="goodCount">0</span></p>
+    <p>oops:<span id="oppsCount">0</span></p>
+
+</form>
+<script>
+    var good=0;
+    var oops=0;
+    function checkAuthor(){
+        var original=document.getElementById("secretvalue").value
+        var guess=document.getElementById("input").value
+        if(original==guess){
+            good++;
+            alert("you got it right");
+        }else{
+            oops++;
+            alert("sorry");
+        }
+        document.getElementById("goodCount").innerHTML=good;
+        document.getElementById("oppsCount").innerHTML=oops;
+    }
+</script>
+
+</body>
+</html>
