@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>WEBAPPS LAB-6</title>
-</head>
- 
+ <head>
+    <title>WEBAPPS ASSIGNMENT-6</title> 
+ </head>
 <body>
-
-<h2> Author entry Sony Valeti</h2>
+<h1> Author entry sony valeti </h1>
+<h2>Getting input</h2>
 
 <form>
-    <label for="secretvalue">The hidden author name</label>
-    <input type="password" value="Dickens" name="secretvalue" id="secretvalue">
-    <br><br>
-    <label for="input">Guess the author</label>
-    <input type="text" id="input">
-    <br><br>
-    <button type="button" onclick="checkAuthor()">check the Guess</button>
-    <br><br>
-    <p>Good:<span id="goodCount">0</span></p>
-    <p>oops:<span id="oppsCount">0</span></p>
+    <label for="Hidden-author">Hidden author name </label>
+    <input type ="password" id="Hidden-author" name="Hidden-author" min=10 max=50 step=2 value=Dickens> <br>
 
+    <label for="Guess-the-author">guess the author </label>
+    <input type ="text" id="Guess-the-author" > <br>
+
+    <input type="button" onclick="checkauthor()" value="check the guess">
 </form>
-<script>
-    var good=0;
-    var oops=0;
-    function checkAuthor(){
-        var original=document.getElementById("secretvalue").value
-        var guess=document.getElementById("input").value
-        if(original==guess){
-            good++;
-            alert("you got it right");
-        }else{
-            oops++;
-            alert("sorry");
-        }
-        document.getElementById("goodCount").innerHTML=good;
-        document.getElementById("oppsCount").innerHTML=oops;
+
+
+<p>Result</p>
+   <div id="result"> Good:0 ,  oops:0</div> 
+<img src="Vienna.jpg" alt="Vienna" id= "imageChangeOnClick" width="100px" height="100px" onclick="selectImage()">
+<script> 
+
+var good=0;
+var oops=0;
+var useImage=1;
+function checkauthor(){
+    var hiddenInput = document.getElementById("Hidden-author");
+    var guessInput = document.getElementById("Guess-the-author");
+    var result= document.getElementById("result");
+    var hiddenauthor=hiddenInput.value;
+    var guessauthor=guessInput.value
+    if(hiddenauthor===guessauthor){
+        alert("You got it right");
+        good++;
     }
+    else{
+        oops++;
+        alert("Sorry");
+    }
+   result.innerHTML= "Good: "+ good + ", Oops: " +oops; 
+}
+function selectImage() {
+           switch(useImage){
+              case 1:
+                document.getElementById("imageChangeOnClick").src="Vienna.jpg";
+                useImage++;
+                break;
+              case 2:
+                document.getElementById("imageChangeOnClick").src="Amsterdam.jpg";
+                useImage++;
+                break;
+              case 3:
+              document.getElementById("imageChangeOnClick").src="London.jpg";
+                useImage=1;
+                break;
+           }
+        }
+
 </script>
 
 </body>
