@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <title>Computing Tip</title>
+<meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <body>
 
-    <h1>sony valeti shows tip amounts</h1>
+    <h1 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ; background-color:pink">sony valeti shows tip amounts</h1>
 
     <form>
         <label for="base">Enter base amount</label>
@@ -13,7 +17,7 @@
         <label for="tip">Enter the tip percent</label>
         <input type="number" id="tip" name="tip" value="10"> <br>
 
-        <input type="button" onclick="tips()" value="Show tip">
+        <input type="button" onclick="tips()" value="Show tip" style="background-color: aqua;">
     </form>
     <p id="result">This text will be replaced </p>
     <form>

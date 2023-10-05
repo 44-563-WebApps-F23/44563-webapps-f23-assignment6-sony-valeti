@@ -2,21 +2,39 @@
 <html>
  <head>
     <title>WEBAPPS ASSIGNMENT-6</title> 
+    <style>
+        input[type=text]{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid red;
+            border-radius: 4px;
+        }
+        input[type=password]{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid red;
+            border-radius: 4px;
+        }
+    </style>
  </head>
 <body>
 <h1> Author entry sony valeti </h1>
-<h2>Getting input</h2>
+<h2 style="color: blue; font-style: italic;">Getting input</h2>
 <form>
     <label for="Hidden-author">Hidden author name </label>
     <input type ="password" id="Hidden-author" name="Hidden-author" min=10 max=50 step=2 value=Dickens> <br>
 
-    <label for="Guess-the-author">guess the author </label>
-    <input type ="text" id="Guess-the-author" > <br>
+    <label for="Guess-the-author">Guess the author </label>
+    <input type ="text" id="Guess-the-author"> <br>
 
-    <input type="button" onclick="checkauthor()" value="check the guess">
+    <input type="button" onclick="checkauthor()" value="check the guess" style="background-color: greenyellow;">
 </form>
 <p>Result</p>
-   <div id="result"> Good:0 ,  oops:0</div> 
+   <div id="result" style="background-color: grey"> Good:0 ,  oops:0</div> 
 <img src="Vienna.jpg" alt="Vienna" id= "imageChangeOnClick" width="100px" height="100px" onclick="selectImage()">
 <script> 
 var good=0;
@@ -31,12 +49,18 @@ function checkauthor(){
     if(hiddenauthor===guessauthor){
         alert("You got it right");
         good++;
+        document.getElementById("result").innerHTML="Good "+good;
     }
     else{
         oops++;
+        if(oops>7){
+            alert("Sorry, ran out of guess");
+            document.getElementById("guessInput").disabled=true;
+            
+        }
         alert("Sorry");
+        document.getElementById("result").innerHTML="Oops "+oops;
     }
-   result.innerHTML= "Good: "+ good + ", Oops: " +oops; 
 }
 function selectImage() {
            switch(useImage){
